@@ -12,10 +12,12 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          ВСЕТИ
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn stretch flat label="Help"></q-btn>
+        <q-separator dark vertical></q-separator>
+        <q-btn stretch flat label="Exit"></q-btn>
       </q-toolbar>
     </q-header>
 
