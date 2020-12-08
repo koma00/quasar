@@ -9,6 +9,17 @@
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
+          v-if="$q.platform.is.mobile"
+        />
+
+        <q-btn
+          flat
+          dense
+          round
+          icon="groups"
+          aria-label="Menu"
+          @click="$router.replace('/')"
+          v-if="$q.platform.is.desktop"
         />
 
         <q-toolbar-title>
@@ -28,13 +39,7 @@
       content-class="bg-grey-1"
       v-if="$q.platform.is.mobile"
     >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
+      <q-list class="text-primary">
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -43,52 +48,15 @@
       </q-list>
     </q-drawer>
 
-    <div class="row" v-if="$q.platform.is.desktop">
+    <div class="row" v-if="$q.platform.is.desktop" style="min-width: 950px">
       <q-page-container padding class="col">
         <div class="q-pa-md q-gutter-md" style="max-width: 250px; min-width: 200px">
           <q-list bordered padding class="rounded-borders text-primary">
-            <q-item
-              clickable
-              v-ripple
-              :active="link === 'inbox'"
-              @click="link = 'inbox'"
-              active-class="my-menu-link"
-            >
-              <q-item-section avatar>
-                <q-icon name="inbox"></q-icon>
-              </q-item-section>
-
-              <q-item-section>Inbox</q-item-section>
-            </q-item>
-
-            <q-item
-              clickable
-              v-ripple
-              :active="link === 'outbox'"
-              @click="link = 'outbox'"
-              active-class="my-menu-link"
-            >
-              <q-item-section avatar>
-                <q-icon name="send"></q-icon>
-              </q-item-section>
-
-              <q-item-section>Outbox</q-item-section>
-            </q-item>
-
-            <q-item
-              clickable
-              v-ripple
-              :active="link === 'trash'"
-              @click="link = 'trash'"
-              active-class="my-menu-link"
-            >
-              <q-item-section avatar>
-                <q-icon name="delete"></q-icon>
-              </q-item-section>
-
-              <q-item-section>Trash</q-item-section>
-            </q-item>
-
+            <EssentialLink
+              v-for="link in essentialLinks"
+              :key="link.title"
+              v-bind="link"
+            />
             <q-separator spaced></q-separator>
 
             <q-item
@@ -122,7 +90,7 @@
         </div>
       </q-page-container>
 
-      <q-page-container class="col-10">
+      <q-page-container class="col-10" style="padding-top: 35px">
         <router-view />
       </q-page-container>
     </div>

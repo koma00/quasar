@@ -1,9 +1,7 @@
 <template>
   <q-item
     clickable
-    tag="a"
-    target="_self"
-    :href="link"
+    @click="$router.replace(link)"
   >
     <q-item-section
       v-if="icon"
