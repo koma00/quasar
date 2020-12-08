@@ -1,18 +1,18 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="text-blue text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
+      <div style="font-size: 20vh">
         404
       </div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+      <div class="text-h3" style="opacity:.4">
+        Sorry. Page not found...
       </div>
 
       <q-btn
         class="q-mt-xl"
-        color="white"
-        text-color="blue"
+        color="blue"
+        text-color="white"
         unelevated
         to="/"
         label="Go Home"

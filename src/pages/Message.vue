@@ -96,6 +96,6 @@
 
 <script>
 export default {
-  // name: 'PageName',
+  name: 'PageMessage'
 }
 </script>

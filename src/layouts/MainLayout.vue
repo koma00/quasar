@@ -26,6 +26,7 @@
       show-if-above
       bordered
       content-class="bg-grey-1"
+      v-if="$q.platform.is.mobile"
     >
       <q-list>
         <q-item-label
@@ -42,7 +43,91 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <div class="row" v-if="$q.platform.is.desktop">
+      <q-page-container padding class="col">
+        <div class="q-pa-md q-gutter-md" style="max-width: 250px; min-width: 200px">
+          <q-list bordered padding class="rounded-borders text-primary">
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'inbox'"
+              @click="link = 'inbox'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="inbox"></q-icon>
+              </q-item-section>
+
+              <q-item-section>Inbox</q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'outbox'"
+              @click="link = 'outbox'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="send"></q-icon>
+              </q-item-section>
+
+              <q-item-section>Outbox</q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'trash'"
+              @click="link = 'trash'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="delete"></q-icon>
+              </q-item-section>
+
+              <q-item-section>Trash</q-item-section>
+            </q-item>
+
+            <q-separator spaced></q-separator>
+
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'settings'"
+              @click="link = 'settings'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="settings"></q-icon>
+              </q-item-section>
+
+              <q-item-section>Settings</q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'help'"
+              @click="link = 'help'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="help"></q-icon>
+              </q-item-section>
+
+              <q-item-section>Help</q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+      </q-page-container>
+
+      <q-page-container class="col-10">
+        <router-view />
+      </q-page-container>
+    </div>
+
+    <q-page-container v-if="$q.platform.is.mobile">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -53,46 +138,29 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'My page',
+    icon: 'person',
+    link: '/'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Friends',
+    icon: 'people',
+    link: '/friends'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
+    title: 'Messages',
     icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    link: '/message'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'Settings',
+    icon: 'settings',
+    link: '/settings'
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Exit',
+    icon: 'exit_to_app',
+    link: '/exit'
   }
 ]
 
