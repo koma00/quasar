@@ -1,7 +1,12 @@
 <template>
+  <q-separator
+    v-if="title === 'separator'"
+    spaced>
+  </q-separator>
   <q-item
     clickable
     @click="$router.replace(link)"
+    v-else
   >
     <q-item-section
       v-if="icon"

@@ -57,35 +57,6 @@
               :key="link.title"
               v-bind="link"
             />
-            <q-separator spaced></q-separator>
-
-            <q-item
-              clickable
-              v-ripple
-              :active="link === 'settings'"
-              @click="link = 'settings'"
-              active-class="my-menu-link"
-            >
-              <q-item-section avatar>
-                <q-icon name="settings"></q-icon>
-              </q-item-section>
-
-              <q-item-section>Settings</q-item-section>
-            </q-item>
-
-            <q-item
-              clickable
-              v-ripple
-              :active="link === 'help'"
-              @click="link = 'help'"
-              active-class="my-menu-link"
-            >
-              <q-item-section avatar>
-                <q-icon name="help"></q-icon>
-              </q-item-section>
-
-              <q-item-section>Help</q-item-section>
-            </q-item>
           </q-list>
         </div>
       </q-page-container>
@@ -119,6 +90,9 @@ const linksData = [
     title: 'Messages',
     icon: 'chat',
     link: '/message'
+  },
+  {
+    title: 'separator'
   },
   {
     title: 'Settings',
