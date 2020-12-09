@@ -70,6 +70,6 @@
 
 <script>
 export default {
-  name: 'PageMessage'
+  name: 'PageChat'
 }
 </script>
