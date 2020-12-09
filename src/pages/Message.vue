@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <div id="q-app">
-      <div class="q-pa-md q-gutter-md">
+      <div class="q-pa-md q-gutter-md text-primary">
         <q-list bordered class="rounded-borders">
           <q-item-label header>Messages</q-item-label>
 
@@ -27,7 +27,7 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple class="bg-blue-1">
             <q-item-section avatar>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar2.jpg">
