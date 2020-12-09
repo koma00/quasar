@@ -26,9 +26,9 @@
           ВСЕТИ
         </q-toolbar-title>
 
-        <q-btn stretch flat label="Help"></q-btn>
+        <q-btn stretch flat label="Help" @click="$router.replace('/help')"></q-btn>
         <q-separator dark vertical></q-separator>
-        <q-btn stretch flat label="Exit"></q-btn>
+        <q-btn stretch flat label="Exit" @click="$router.replace('/exit')"></q-btn>
       </q-toolbar>
     </q-header>
 
