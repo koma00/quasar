@@ -5,7 +5,7 @@
         <q-list bordered class="rounded-borders">
           <q-item-label header>Messages</q-item-label>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple @click="$router.replace('chat/1')">
             <q-item-section avatar>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar1.jpg">
@@ -27,7 +27,7 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple class="bg-blue-1">
+          <q-item clickable v-ripple @click="$router.replace('chat/1')" class="bg-blue-1">
             <q-item-section avatar>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar2.jpg">
@@ -48,7 +48,7 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple @click="$router.replace('chat/1')">
             <q-item-section avatar>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar3.jpg">
@@ -70,7 +70,7 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple @click="$router.replace('chat/1')">
             <q-item-section avatar>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar4.jpg">
