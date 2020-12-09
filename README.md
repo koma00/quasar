@@ -24,3 +24,9 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### Run in docker the app in development mode
+```bash
+docker build --tag quasar_dev:1.0 .
+docker run --name quasar_dev -p 8080:8080 -v $(pwd)/src:/home/node/quasar/src -v $(pwd)/public:/home/node/quasar/public quasar_dev:1.0
+```
