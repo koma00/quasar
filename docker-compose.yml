@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  quasar:
+    image: koma00/quasar_dev:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./src:/home/node/quasar/src"
+      - "./public:/home/node/quasar/public"

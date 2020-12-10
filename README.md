@@ -30,3 +30,13 @@ See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
 docker pull koma00/quasar_dev:latest
 docker run --name quasar_dev -d -p 8080:8080 -v $(pwd)/src:/home/node/quasar/src -v $(pwd)/public:/home/node/quasar/public koma00/quasar_dev:latest
 ```
+
+### Run in docker the app in development mode use docker-compose
+```bash
+docker-compose up -d
+```
+
+### Stop and remove from docker the app in development mode use docker-compose
+```bash
+docker-compose down
+```
