@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
+      { path: 'friends/', component: () => import('pages/Friends.vue') },
       { path: 'message/', component: () => import('pages/Message.vue') },
       { path: 'chat/:id', component: () => import('pages/Chat.vue') }
     ]
