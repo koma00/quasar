@@ -20,7 +20,17 @@
             </q-item-section>
 
             <q-item-section side @click="$router.replace('chat/1')">
-              <q-btn size="10px" color="primary" label="Send message"></q-btn>
+              <q-btn
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.desktop">
+              </q-btn>
+              <q-btn
+                size="10px"
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.mobile">
+              </q-btn>
             </q-item-section>
           </q-item>
 
@@ -41,7 +51,17 @@
             </q-item-section>
 
             <q-item-section side @click="$router.replace('chat/1')">
-              <q-btn size="10px" color="primary" label="Send message"></q-btn>
+              <q-btn
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.desktop">
+              </q-btn>
+              <q-btn
+                size="10px"
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.mobile">
+              </q-btn>
             </q-item-section>
           </q-item>
 
@@ -62,7 +82,17 @@
             </q-item-section>
 
             <q-item-section side @click="$router.replace('chat/1')">
-              <q-btn size="10px" color="primary" label="Send message"></q-btn>
+              <q-btn
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.desktop">
+              </q-btn>
+              <q-btn
+                size="10px"
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.mobile">
+              </q-btn>
             </q-item-section>
           </q-item>
 
@@ -83,7 +113,17 @@
             </q-item-section>
 
             <q-item-section side @click="$router.replace('chat/1')">
-              <q-btn size="10px" color="primary" label="Send message"></q-btn>
+              <q-btn
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.desktop">
+              </q-btn>
+              <q-btn
+                size="10px"
+                color="primary"
+                label="Send message"
+                v-if="$q.platform.is.mobile">
+              </q-btn>
             </q-item-section>
           </q-item>
         </q-list>
