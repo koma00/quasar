@@ -4,15 +4,14 @@
       <div class="q-pa-md q-gutter-md text-primary">
         <q-list bordered class="rounded-borders">
           <q-item-label header>Friends</q-item-label>
-
-          <q-item clickable v-ripple @click="$router.replace('profile/1')">
-            <q-item-section avatar>
+          <q-item clickable v-ripple>
+            <q-item-section avatar @click="$router.replace('profile/1')">
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar1.jpg">
               </q-avatar>
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section @click="$router.replace('profile/1')">
               <q-item-label lines="1">Miho Seko</q-item-label>
               <q-item-label caption lines="1">
                 Online
@@ -36,14 +35,14 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple @click="$router.replace('chat/1')">
-            <q-item-section avatar>
+          <q-item clickable v-ripple>
+            <q-item-section avatar @click="$router.replace('profile/1')">
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar2.jpg">
               </q-avatar>
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section @click="$router.replace('profile/1')">
               <q-item-label lines="1">Mary Ride</q-item-label>
               <q-item-label caption lines="1">
                 Online
@@ -67,14 +66,14 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple @click="$router.replace('chat/1')">
-            <q-item-section avatar>
+          <q-item clickable v-ripple>
+            <q-item-section avatar @click="$router.replace('profile/1')">
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar3.jpg">
               </q-avatar>
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section @click="$router.replace('profile/1')">
               <q-item-label lines="1">Vika Moll</q-item-label>
               <q-item-label caption lines="1">
                 Online
@@ -98,14 +97,14 @@
 
           <q-separator inset="item"></q-separator>
 
-          <q-item clickable v-ripple @click="$router.replace('chat/1')">
-            <q-item-section avatar>
+          <q-item clickable v-ripple>
+            <q-item-section avatar @click="$router.replace('profile/1')">
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar4.jpg">
               </q-avatar>
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section @click="$router.replace('profile/1')">
               <q-item-label lines="1">Anton Klai</q-item-label>
               <q-item-label caption lines="1">
                 Online
