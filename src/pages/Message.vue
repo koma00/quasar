@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page>
     <div id="q-app">
       <div class="q-pa-md q-gutter-md text-primary">
         <q-list bordered class="rounded-borders">

@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page>
     <div id="q-app">
       <div class="q-pa-md row justify-center">
         <q-list bordered class="rounded-borders" style="width: 100%; padding: 30px; padding-top: 0px">

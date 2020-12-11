@@ -61,7 +61,7 @@
         </div>
       </q-page-container>
 
-      <q-page-container class="col-10" style="padding-top: 35px">
+      <q-page-container class="col-10">
         <router-view />
       </q-page-container>
     </div>
