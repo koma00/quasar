@@ -42,7 +42,8 @@
             name="Mary"
             stamp="7 minutes ago"
             :text="['Hey there!', 'Can we schedule a call for tomorrow?']"
-            bg-color="amber"
+            text-color="white"
+            bg-color="primary"
           >
             <template v-slot:avatar>
               <img
@@ -59,7 +60,13 @@
               v-model="text"
               filled
               autogrow
-            ><q-btn color="primary" label="Send" style="margin-right: 0px"></q-btn></q-input>
+            >
+              <q-btn
+                color="primary"
+                label="Send"
+                style="margin: auto 0px auto auto; height: 70%"
+              ></q-btn>
+            </q-input>
           </div>
         </div>
         </q-list>
