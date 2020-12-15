@@ -41,7 +41,8 @@
               lazy-rules
               :rules="[
                 val => val && val.length > 0 || 'Please type your login',
-                val => /^[a-zA-Z0-9._%+-]{1,64}$/.test(val) || 'Invalid login (only english letters and numbers)'
+                val => /^[a-zA-Z0-9]{1,64}$/.test(val) || 'Invalid login (only english letters and numbers)',
+                val => check_login(val) || 'Login zanyt'
               ]"
           ></q-input>
           <q-input
@@ -61,7 +62,9 @@
               label="Password *"
               lazy-rules
               :rules="[
-              val => val && val.length > 0|| 'Please type your password'
+                val => val && val.length > 0 || 'Please type your password',
+                val => val && val.length >= 8 || 'The password must be at least 8 characters long',
+                val => val != login || 'Password must not be the same as login'
               ]"
           ></q-input>
           <q-input
@@ -71,7 +74,8 @@
               label="Confirm Password *"
               lazy-rules
               :rules="[
-              val => val && val.length > 0|| 'Please type your password'
+                val => val && val.length > 0 || 'Please type your password',
+                val => val == password || 'Password not equvalent'
               ]"
           ></q-input>
           <div class="flex flex-center">
@@ -102,26 +106,25 @@ export default {
 
   methods: {
     onSubmit () {
-      if (this.password !== this.confirm_password) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'warning',
-          message: 'Password not equvalent'
-        })
-      } else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'cloud_done',
-          message: 'Registered'
-        })
-      }
+      // TODO: send request to api
+      this.$q.notify({
+        color: 'green-4',
+        textColor: 'white',
+        icon: 'cloud_done',
+        message: 'Registered'
+      })
     },
 
     onReset () {
       this.login = null
       this.password = null
+    },
+
+    check_login (val) {
+      if (val.toLowerCase().includes('admin')) {
+        return false
+      }
+      return true
     }
   }
 }
