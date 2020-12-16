@@ -75,36 +75,61 @@
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
 
-const linksData = [
-  {
-    title: 'My page',
-    icon: 'person',
-    link: '/'
-  },
-  {
-    title: 'Friends',
-    icon: 'people',
-    link: '/friends'
-  },
-  {
-    title: 'Messages',
-    icon: 'chat',
-    link: '/message'
-  },
-  {
-    title: 'separator'
-  },
-  {
-    title: 'Settings',
-    icon: 'settings',
-    link: '/settings'
-  },
-  {
-    title: 'Exit',
-    icon: 'exit_to_app',
-    link: '/exit'
-  }
-]
+var linksData = null
+var isAuthenticated = false
+if (isAuthenticated) {
+  linksData = [
+    {
+      title: 'My page',
+      icon: 'person',
+      link: '/'
+    },
+    {
+      title: 'Friends',
+      icon: 'people',
+      link: '/friends'
+    },
+    {
+      title: 'Messages',
+      icon: 'chat',
+      link: '/message'
+    },
+    {
+      title: 'separator'
+    },
+    {
+      title: 'Settings',
+      icon: 'settings',
+      link: '/settings'
+    },
+    {
+      title: 'Exit',
+      icon: 'exit_to_app',
+      link: '/exit'
+    }
+  ]
+} else {
+  linksData = [
+    {
+      title: 'Login',
+      icon: 'person',
+      link: '/login'
+    },
+    {
+      title: 'Register',
+      icon: 'people',
+      link: '/register'
+    },
+    {
+      title: 'separator'
+    },
+    {
+      title: 'Help',
+      icon: 'help',
+      link: '/help'
+    }
+  ]
+}
 
 export default {
   name: 'MainLayout',

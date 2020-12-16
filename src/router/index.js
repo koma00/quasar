@@ -26,5 +26,25 @@ export default function (/* { store, ssrContext } */) {
     base: process.env.VUE_ROUTER_BASE
   })
 
+  Router.beforeEach((to, from, next) => {
+    // GOTO: get authenticated status
+    var isAuthenticated = false
+    if (to.meta.requiresAuth === 'all') {
+      next()
+    } else if (isAuthenticated && !to.meta.requiresAuth) {
+      next({
+        path: '/',
+        replace: true
+      })
+    } else if (!isAuthenticated && to.meta.requiresAuth) {
+      next({
+        path: '/login',
+        replace: true
+      })
+    } else {
+      next()
+    }
+  })
+
   return Router
 }
