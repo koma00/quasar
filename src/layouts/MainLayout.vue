@@ -74,9 +74,15 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
+import store from '../store'
 
 var linksData = null
 var isAuthenticated = false
+
+if (!(store().getters['login/isLoggedIn'] === undefined)) {
+  isAuthenticated = true
+}
+
 if (isAuthenticated) {
   linksData = [
     {

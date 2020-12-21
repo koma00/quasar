@@ -56,12 +56,21 @@ export default {
 
   methods: {
     onSubmit () {
-      this.$q.notify({
-        color: 'green-4',
-        textColor: 'white',
-        icon: 'cloud_done',
-        message: 'Authorized'
-      })
+      if (this.login === 'admin' && this.password === 'admin') {
+        this.$store.commit('login/updateLogin', this.login)
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'cloud_done',
+          message: 'Authorized'
+        })
+        this.$router.go('/')
+      } else {
+        this.$q.notify({
+          type: 'negative',
+          message: 'Login or password is incorrect'
+        })
+      }
     },
 
     onReset () {

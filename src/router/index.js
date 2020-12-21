@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 
+import store from '../store'
+
 Vue.use(VueRouter)
 
 /*
@@ -27,8 +29,10 @@ export default function (/* { store, ssrContext } */) {
   })
 
   Router.beforeEach((to, from, next) => {
-    // GOTO: get authenticated status
     var isAuthenticated = false
+    if (!(store().getters['login/isLoggedIn'] === undefined)) {
+      isAuthenticated = true
+    }
     if (to.meta.requiresAuth === 'all') {
       next()
     } else if (isAuthenticated && !to.meta.requiresAuth) {
