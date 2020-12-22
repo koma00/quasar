@@ -23,7 +23,7 @@
         />
 
         <q-toolbar-title>
-          ВСЕТИ
+          VSETI
         </q-toolbar-title>
 
         <q-btn stretch flat label="Help" @click="$router.replace('/help')"></q-btn>

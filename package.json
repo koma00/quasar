@@ -1,8 +1,8 @@
 {
   "name": "quasar",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "Social network VSETI",
+  "productName": "VSETI",
   "author": "",
   "private": true,
   "scripts": {
