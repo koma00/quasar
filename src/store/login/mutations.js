@@ -11,3 +11,8 @@ export const updateLogin = (state, opened) => {
   state.login = item
   localStorage.setItem('login', JSON.stringify(item))
 }
+
+export const destroyLogin = (state) => {
+  localStorage.removeItem('login')
+  state = undefined
+}

@@ -28,7 +28,10 @@
 
         <q-btn stretch flat label="Help" @click="$router.replace('/help')"></q-btn>
         <q-separator dark vertical></q-separator>
-        <q-btn stretch flat label="Exit" @click="$router.replace('/exit')"></q-btn>
+        <q-btn stretch flat label="Exit" @click="destroyLogin()" v-if="checkAuthenticated()"></q-btn>
+        <q-btn stretch flat label="Login" @click="$router.replace('/login')" v-if="!checkAuthenticated()"></q-btn>
+        <q-separator dark vertical></q-separator>
+        <q-btn stretch flat label="Register" @click="$router.replace('/register')" v-if="!checkAuthenticated()"></q-btn>
       </q-toolbar>
     </q-header>
 
@@ -144,6 +147,15 @@ export default {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData
+    }
+  },
+  methods: {
+    destroyLogin () {
+      store().commit('login/destroyLogin')
+      this.$router.go('/login')
+    },
+    checkAuthenticated () {
+      return !isAuthenticated
     }
   }
 }
