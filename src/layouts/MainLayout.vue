@@ -155,7 +155,7 @@ export default {
       this.$router.go('/login')
     },
     checkAuthenticated () {
-      return !isAuthenticated
+      return isAuthenticated
     }
   }
 }
