@@ -9,7 +9,7 @@ const routes = [
       { path: 'friends/', component: () => import('pages/Friends.vue'), meta: { requiresAuth: true } },
       { path: 'message/', component: () => import('pages/Message.vue'), meta: { requiresAuth: true } },
       { path: 'chat/:id', component: () => import('pages/Chat.vue'), meta: { requiresAuth: true } },
-      { path: '/settings', component: () => import('pages/Error404.vue'), meta: { requiresAuth: true } },
+      { path: '/settings', component: () => import('pages/Settings.vue'), meta: { requiresAuth: true } },
       { path: '/exit', component: () => import('pages/Error404.vue'), meta: { requiresAuth: true } },
       { path: '/help', component: () => import('pages/Error404.vue'), meta: { requiresAuth: 'all' } }
     ]
