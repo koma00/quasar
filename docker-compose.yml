@@ -1,9 +1,28 @@
 version: "3.3"
 services:
-  quasar:
+  frontend:
     image: koma00/quasar_dev:latest
     ports:
       - "8080:8080"
     volumes:
-      - "./src:/home/node/quasar/src"
-      - "./public:/home/node/quasar/public"
+      - "./frontend/src:/home/node/quasar/src"
+      - "./frontend/public:/home/node/quasar/public"
+    depends_on:
+      - api
+  api:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - "./backend:/code"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment: 
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
