@@ -38,7 +38,7 @@
                 color="primary"
                 label="Add frinds"
                 @click="alert = true"
-                style="width: 100%">
+                style="width: 100%; margin-top: 5px">
               </q-btn>
             </q-item-section>
             <q-item-section side v-if="$q.platform.is.mobile">
