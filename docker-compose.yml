@@ -11,7 +11,12 @@ services:
       - api
   api:
     build: ./backend
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "
+        sleep 10
+        && python manage.py migrate
+        && python manage.py initadmin --username=admin --email=admin@example.com --password=admin
+        && python manage.py runserver 0.0.0.0:8000
+      "
     volumes:
       - "./backend:/code"
     ports:
