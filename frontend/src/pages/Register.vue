@@ -90,6 +90,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'PageRegister',
 
@@ -106,13 +108,35 @@ export default {
 
   methods: {
     onSubmit () {
-      // TODO: send request to api
-      this.$q.notify({
-        color: 'green-4',
-        textColor: 'white',
-        icon: 'cloud_done',
-        message: 'Registered'
-      })
+      const playload = {
+        username: this.login,
+        email: this.email,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        password: this.password
+      }
+
+      axios.post(this.$store.getters['login/getEndPoints'].createJWT, playload)
+        .then((response) => {
+          this.$q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Registered'
+          })
+          this.$router.replace('/login')
+        })
+        .catch((error) => {
+          for (var err in error.response.data) {
+            // console.log('dsads=', error.response.data[err])
+            var message = error.response.data[err].toString()
+            const messageCapitalized = message.charAt(0).toUpperCase() + message.slice(1)
+            this.$q.notify({
+              type: 'negative',
+              message: messageCapitalized
+            })
+          }
+        })
     },
 
     onReset () {
