@@ -128,7 +128,6 @@ export default {
         })
         .catch((error) => {
           for (var err in error.response.data) {
-            // console.log('dsads=', error.response.data[err])
             var message = error.response.data[err].toString()
             const messageCapitalized = message.charAt(0).toUpperCase() + message.slice(1)
             this.$q.notify({

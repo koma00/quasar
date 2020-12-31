@@ -1,7 +1,8 @@
 export default function () {
   const retVal = {
     endpoints: {
-      createJWT: 'http://127.0.0.1:8000/api/user/create/'
+      createJWT: 'http://127.0.0.1:8000/api/user/create/',
+      loginJWT: 'http://127.0.0.1:8000/api/user/auth/'
     }
   }
   const loginStr = localStorage.getItem('login')

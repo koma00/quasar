@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'PageLogin',
 
@@ -56,21 +58,33 @@ export default {
 
   methods: {
     onSubmit () {
-      if (this.login === 'admin' && this.password === 'admin') {
-        this.$store.commit('login/updateLogin', this.login)
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'cloud_done',
-          message: 'Authorized'
-        })
-        this.$router.go('/')
-      } else {
-        this.$q.notify({
-          type: 'negative',
-          message: 'Login or password is incorrect'
-        })
+      const playload = {
+        username: this.login,
+        password: this.password
       }
+
+      axios.post(this.$store.getters['login/getEndPoints'].loginJWT, playload)
+        .then((response) => {
+          const data = response.data
+          this.$store.commit('login/updateLogin', data.username)
+          this.$q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Authorized'
+          })
+          this.$router.go('/')
+        })
+        .catch((error) => {
+          for (var err in error.response.data) {
+            var message = error.response.data[err].toString()
+            const messageCapitalized = message.charAt(0).toUpperCase() + message.slice(1)
+            this.$q.notify({
+              type: 'negative',
+              message: messageCapitalized
+            })
+          }
+        })
     },
 
     onReset () {

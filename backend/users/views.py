@@ -56,5 +56,5 @@ def authenticate_user(request):
             }
             return Response(res, status=status.HTTP_403_FORBIDDEN)
     except:
-        res = {'error': 'please provide a username and a password'}
-        return Response(res)
+        res = {'error': 'please check your username and password'}
+        return Response(res, status=status.HTTP_403_FORBIDDEN)
